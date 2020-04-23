@@ -5,6 +5,7 @@ class RedRocks {
     this.capacity = 9525;
     this.todaysWeather = weatherDetails;
     this.calendar = calendarDetails;
+    this.open = true;
   }
 
   atCapacity(currentCapacity) {
@@ -28,6 +29,10 @@ class RedRocks {
     } else {
       return 'No shows on the schedule'
     }
+  }
+
+  close() {
+    this.open = !this.open;
   }
 
 }

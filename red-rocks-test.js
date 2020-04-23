@@ -93,4 +93,30 @@ describe('Red Rocks', () => {
 
   });
 
+  it('should start out open', () => {
+    const currentCalendar = [
+      { artist: 'Pretty Lights', date: '04/28/2021' },
+      { artist: 'Griz', date: '05/01/2021' },
+      { artist: 'Kaskade', date: '05/12/2021' },
+      { artist: 'Deadmau5', date: '05/21/2021' }
+    ]
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
+
+    assert.equal(redRocks.open, true)
+  });
+
+  it('should be able to close', () => {
+    const currentCalendar = [
+      { artist: 'Pretty Lights', date: '04/28/2021' },
+      { artist: 'Griz', date: '05/01/2021' },
+      { artist: 'Kaskade', date: '05/12/2021' },
+      { artist: 'Deadmau5', date: '05/21/2021' }
+    ]
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
+
+    redRocks.close()
+
+    assert.equal(redRocks.open, false)
+  });
+
 });
