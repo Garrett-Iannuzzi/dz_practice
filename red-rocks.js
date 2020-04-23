@@ -11,10 +11,14 @@ class RedRocks {
     this.todaysWeather = update;
   }
 
+  addShow(newShows) {
+    this.upcomingShows.push(newShows)
+  }
+
 
 
 
 
 }
 
-module.exports = RedRocks;
+module.exports = RedRocks; 

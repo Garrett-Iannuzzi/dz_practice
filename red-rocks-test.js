@@ -36,5 +36,14 @@ describe('Red Rocks', function () {
     assert.deepEqual(redRocks.todaysWeather, weatherUpdate);
   });
 
+  it('should be able to add some upcoming shows', () => {
+    const redRocks = new RedRocks('Some Hip-Hop shit', { temp: 75, status: 'mostly sunny' });
+    const showToAdd = 'Pretty Lights';
+
+    redRocks.addShow(showToAdd);
+
+    assert.deepEqual(redRocks.upcomingShows, [ showToAdd ]);
+  });
+
 
 });
