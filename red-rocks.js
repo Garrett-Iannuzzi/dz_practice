@@ -1,10 +1,10 @@
 class RedRocks {
-  constructor(showName, weatherDetails) {
+  constructor(showName, weatherDetails, calendarDetails) {
     this.show = showName;
     this.upcomingShows = [];
     this.capacity = 9525;
     this.todaysWeather = weatherDetails;
-
+    this.calendar = calendarDetails;
   }
 
   atCapacity(currentCapacity) {
@@ -22,7 +22,13 @@ class RedRocks {
     this.upcomingShows.push(newShows)
   }
 
-
+  checkCalendar() {
+    if(this.calendar.length > 0) {
+      return this.upcomingShows = this.calendar;
+    } else {
+      return 'No shows to add'
+    }
+  }
 
 
 
