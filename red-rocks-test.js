@@ -89,9 +89,8 @@ describe('Red Rocks', () => {
 
     redRocks.checkCalendar()
 
-    assert.equal(redRocks.checkCalendar(), 'No shows to add');
+    assert.equal(redRocks.checkCalendar(), 'No shows on the schedule');
 
   });
-
 
 });

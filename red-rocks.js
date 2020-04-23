@@ -26,11 +26,9 @@ class RedRocks {
     if(this.calendar.length > 0) {
       return this.upcomingShows = this.calendar;
     } else {
-      return 'No shows to add'
+      return 'No shows on the schedule'
     }
   }
-
-
 
 }
 
