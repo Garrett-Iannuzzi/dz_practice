@@ -149,4 +149,24 @@ describe('Red Rocks', () => {
     assert.equal(redRocks.open, false);
   });
 
+  it('should have a list of past shows', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
+
+    assert.deepEqual(redRocks.pastShows, [])
+  });
+
+  it('should be able to move the most recent show to past shows', () => {
+    const currentCalendar = [
+      { artist: 'Pretty Lights', date: '04/28/2021' },
+      { artist: 'Griz', date: '05/01/2021' },
+      { artist: 'Kaskade', date: '05/12/2021' },
+      { artist: 'Deadmau5', date: '05/21/2021' }
+    ]
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar, 7500);
+
+    redRocks.moveToPastShow();
+
+    assert.deepEqual(redRocks.pastShows, [ { artist: 'Pretty Lights', date: '04/28/2021' } ]);
+  });
+
 });
