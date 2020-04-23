@@ -12,13 +12,13 @@ describe('Red Rocks', () => {
   it('should be able to have a list of upcoming shows', () => {
     const redRocks = new RedRocks('Ice T');
 
-    assert.deepEqual(redRocks.upcomingShows, [])
+    assert.deepEqual(redRocks.upcomingShows, []);
   });
 
   it('should have a capacity', () => {
     const redRocks = new RedRocks('ACDC');
 
-    assert.equal(redRocks.capacity, 9525)
+    assert.equal(redRocks.capacity, 9525);
   });
 
   it('should be able to have a max capacity', () => {
@@ -66,7 +66,7 @@ describe('Red Rocks', () => {
     ]
     const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
 
-    assert.deepEqual(redRocks.calendar, currentCalendar)
+    assert.deepEqual(redRocks.calendar, currentCalendar);
   });
 
   it('should add the calendar to upcoming shows if there are events on the calendar', () => {
@@ -78,7 +78,7 @@ describe('Red Rocks', () => {
     ]
     const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
 
-    redRocks.checkCalendar()
+    redRocks.checkCalendar();
 
     assert.deepEqual(redRocks.upcomingShows, currentCalendar);
   });
@@ -87,7 +87,7 @@ describe('Red Rocks', () => {
     const currentCalendar = []
     const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
 
-    redRocks.checkCalendar()
+    redRocks.checkCalendar();
 
     assert.equal(redRocks.checkCalendar(), 'No shows on the schedule');
 
@@ -102,7 +102,7 @@ describe('Red Rocks', () => {
     ]
     const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
 
-    assert.equal(redRocks.open, true)
+    assert.equal(redRocks.open, true);
   });
 
   it('should have a number of 0 attendees by default', () => {
@@ -117,20 +117,36 @@ describe('Red Rocks', () => {
     assert.equal(redRocks.attendees, 7500);
   });
 
-  it('should be able to close', () => {
-    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
-
-    redRocks.close()
-
-    assert.equal(redRocks.open, false)
-  });
-
   it('should be able to figure out how many tickets there are left to sell', () => {
     const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
 
-    redRocks.calculations()
+    redRocks.calculations();
 
-    assert.equal(redRocks.calculations(), 'We have 2025 tickets left.')
+    assert.equal(redRocks.calculations(), 'We have 2025 tickets left.');
+  });
+
+  it('should be able to calculate total sales ($24.57 per) based on number of attendees', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
+
+    redRocks.calculations();
+
+    assert.equal(redRocks.avgSales, 184275);
+  });
+
+  it('should be able to decide if you made bank by making at least $122,850', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
+
+    redRocks.calculations();
+
+    assert.equal(redRocks.goodNight, true);
+  });
+
+  it('should be able to close', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
+
+    redRocks.close();
+
+    assert.equal(redRocks.open, false);
   });
 
 });

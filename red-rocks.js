@@ -5,8 +5,10 @@ class RedRocks {
     this.capacity = 9525;
     this.todaysWeather = weatherDetails;
     this.calendar = calendarDetails;
-    this.open = true;
     this.attendees = numOfAttendees || 0;
+    this.avgSales = 0;
+    this.goodNight = false;
+    this.open = true;
   }
 
   atCapacity(currentCapacity) {
@@ -33,7 +35,15 @@ class RedRocks {
   }
 
   calculations() {
-    const ticketsLeft = this.capacity - this.attendees
+    const ticketsLeft = this.capacity - this.attendees;
+    const averageSalesPerCustomer = 24.57 * this.attendees;
+
+    this.avgSales = averageSalesPerCustomer;
+
+    if(this.avgSales >= 122850) {
+      this.goodNight = true
+    }
+
     return `We have ${ticketsLeft} tickets left.`
   }
 
