@@ -105,14 +105,20 @@ describe('Red Rocks', () => {
     assert.equal(redRocks.open, true)
   });
 
+  it('should have a number of 0 attendees by default', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, []);
+
+    assert.equal(redRocks.attendees, 0);
+  });
+
+  it('should have a different number of attendees', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
+
+    assert.equal(redRocks.attendees, 7500);
+  });
+
   it('should be able to close', () => {
-    const currentCalendar = [
-      { artist: 'Pretty Lights', date: '04/28/2021' },
-      { artist: 'Griz', date: '05/01/2021' },
-      { artist: 'Kaskade', date: '05/12/2021' },
-      { artist: 'Deadmau5', date: '05/21/2021' }
-    ]
-    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, currentCalendar);
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, []);
 
     redRocks.close()
 

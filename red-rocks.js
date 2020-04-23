@@ -1,11 +1,12 @@
 class RedRocks {
-  constructor(showName, weatherDetails, calendarDetails) {
+  constructor(showName, weatherDetails, calendarDetails, numOfAttendees) {
     this.show = showName;
     this.upcomingShows = [];
     this.capacity = 9525;
     this.todaysWeather = weatherDetails;
     this.calendar = calendarDetails;
     this.open = true;
+    this.attendees = numOfAttendees || 0;
   }
 
   atCapacity(currentCapacity) {
