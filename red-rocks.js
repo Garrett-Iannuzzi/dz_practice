@@ -10,10 +10,10 @@ class RedRocks {
   }
 
   atCapacity(currentCapacity) {
-    if(this.capacity > currentCapacity) {
-      return 'Have fun!'
+    if(this.capacity < currentCapacity) {
+      return 'Sorry, full...'
     }
-    return 'Sorry, full...'
+    return 'Have fun!'
   }
 
   updateWeather(update) {
@@ -30,6 +30,11 @@ class RedRocks {
     } else {
       return 'No shows on the schedule'
     }
+  }
+
+  calculations() {
+    const ticketsLeft = this.capacity - this.attendees
+    return `We have ${ticketsLeft} tickets left.`
   }
 
   close() {

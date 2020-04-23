@@ -118,11 +118,19 @@ describe('Red Rocks', () => {
   });
 
   it('should be able to close', () => {
-    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, []);
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
 
     redRocks.close()
 
     assert.equal(redRocks.open, false)
+  });
+
+  it('should be able to figure out how many tickets there are left to sell', () => {
+    const redRocks = new RedRocks('Snoop', { temp: 75, status: 'mostly sunny' }, [], 7500);
+
+    redRocks.calculations()
+
+    assert.equal(redRocks.calculations(), 'We have 2025 tickets left.')
   });
 
 });
