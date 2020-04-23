@@ -1,0 +1,14 @@
+{
+  "name": "red-rocks",
+  "version": "1.0.0",
+  "description": "Red Rocks",
+  "main": "red-rocks.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Garrett Iannuzzi",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.3"
+  }
+}
